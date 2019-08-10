@@ -17,7 +17,6 @@ jobs:
       uses: actions/checkout@master
 
     - name: Get dependencies
-      working-directory: ${{ go.module-path }}
       run: |
         go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
@@ -26,5 +25,4 @@ jobs:
         fi
 
     - name: Build
-      working-directory: ${{ go.module-path }}
       run: go build -v .
